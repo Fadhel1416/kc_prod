@@ -1,0 +1,202 @@
+<?php
+
+namespace GincidentBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * client
+ *
+ * @ORM\Table(name="client")
+ * @ORM\Entity(repositoryClass="GincidentBundle\Repository\clientRepository")
+ */
+class client
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+     private $name;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+     private $prenom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=255)
+     */
+     private $adresse;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code_postal", type="string", length=255)
+     */
+     private $code_postal;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel_fixe", type="string", length=255)
+     */
+     private $tel_fixe;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="tel_mobile", type="string", length=255)
+     */
+     private $tel_mobile;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+     private $email;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="num_rue", type="string", length=255)
+     */
+     private $num_rue;
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_rue", type="string", length=255)
+     */
+     private $nom_rue;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_liv", type="string", length=255)
+     */
+     private $date_liv;
+     
+     function getName() {
+         return $this->name;
+     }
+
+     function getPrenom() {
+         return $this->prenom;
+     }
+
+     function getAdresse() {
+         return $this->adresse;
+     }
+
+    
+     function getCode_Postal() {
+         return $this->code_postal;
+     }
+   function getCodePostal() {
+         return $this->code_postal;
+     }
+  
+     function getNum_Rue() {
+         return $this->num_rue;
+     }
+      function getNumRue() {
+         return $this->num_rue;
+     }
+
+     function getNom_Rue() {
+         return $this->nom_rue;
+     }
+ function getNomRue() {
+         return $this->nom_rue;
+     }
+     function getDate_liv() {
+         return $this->date_liv;
+     }
+ function getDateliv() {
+         return $this->date_liv;
+     }
+          function getTel_Fixe() {
+         return $this->tel_fixe;
+     }
+   function getTelFixe() {
+         return $this->tel_fixe;
+     }
+     function getTel_Mobile() {
+         return $this->tel_mobile;
+     }
+     function getTelMobile() {
+         return $this->tel_mobile;
+     }
+     function getEmail() {
+         return $this->email;
+     }
+
+
+     function setName($name) {
+         $this->name = $name;
+     }
+
+     function setPrenom($prenom) {
+         $this->prenom = $prenom;
+     }
+
+     function setAdresse($adresse) {
+         $this->adresse = $adresse;
+     }
+
+     function setCode_Postal($code_postal) {
+         $this->code_postal = $code_postal;
+     }
+function setCodePostal($code_postal) {
+         $this->code_postal = $code_postal;
+     }
+     function setTel_Fixe($tel_fixe) {
+         $this->tel_fixe = $tel_fixe;
+     }
+function setTelFixe($tel_fixe) {
+         $this->tel_fixe = $tel_fixe;
+     }
+     function setTel_Mobile($tel_mobile) {
+         $this->tel_mobile = $tel_mobile;
+     }
+function setTelMobile($tel_mobile) {
+         $this->tel_mobile = $tel_mobile;
+     }
+     function setEmail($email) {
+         $this->email = $email;
+     }
+
+     function setNum_Rue($num_rue) {
+         $this->num_rue = $num_rue;
+     }
+function setNumRue($num_rue) {
+         $this->num_rue = $num_rue;
+     }
+     function setNom_Rue($nom_rue) {
+         $this->nom_rue = $nom_rue;
+     }
+function setNomRue($nom_rue) {
+         $this->nom_rue = $nom_rue;
+     }
+     function setDate_Liv($date_liv) {
+         $this->date_liv = $date_liv;
+     }
+function setDateLiv($date_liv) {
+         $this->date_liv = $date_liv;
+     }
+     
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

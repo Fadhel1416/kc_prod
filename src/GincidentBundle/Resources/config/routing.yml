@@ -1,0 +1,185 @@
+gincident_homepage:
+    path:     /
+    defaults: { _controller: GincidentBundle:Default:index }
+gincident_admin_deluser:
+    path:     /admin/supprimer/{id}
+    defaults: { _controller: GincidentBundle:admin:deleteuser }
+gincident_admin_userliste:
+    path:     /admin/users
+    defaults: { _controller: GincidentBundle:admin:Userlist }
+gincident_admin_statistique:
+    path:     /admin/statistique
+    defaults: { _controller: GincidentBundle:admin:Stat }    
+gincident_admin_daschboard:
+    path:     /admin/
+    defaults: { _controller: GincidentBundle:admin:daschboard } 
+gincident_admin_ticket:
+    path:     /produits
+    defaults: { _controller: GincidentBundle:ticket:List }  
+gincident_admin_ticket_ajouter :
+    path:     /ajouter
+    defaults: { _controller: GincidentBundle:ticket:ajouter }
+gincident_admin_article_ajouter :
+    path:     device/ajouter/{id}/{idfact}/##/
+    defaults: { _controller: GincidentBundle:admin:ajouter_art}
+gincident_admin_listart_ajouter:
+    path:     /article/aff/info
+    defaults: { _controller: GincidentBundle:admin:ajouter_listart }
+gincident_admin_article_insert :
+    path:     /device/search/{id}/{idfact}
+    defaults: { _controller: GincidentBundle:admin:search_device }
+gincident_admin_article_inseration :
+    path:     /device/insert/{id}/##*/{idfact}
+    defaults: { _controller: GincidentBundle:admin:insert_device }
+gincident_admin_list_device :
+    path:     /device/list/{id}/##*
+    defaults: { _controller: GincidentBundle:admin:list_device }
+gincident_admin_device_supprimer:
+    path:     /supp#device/{id}/{idc}/##/{idfact}/
+    defaults: { _controller: GincidentBundle:admin:supprimer_devi }
+gincident_admin_device_modifier:
+    path:     /modification#device/{id}/{idfact}
+    defaults: { _controller: GincidentBundle:admin:modifier_devi }
+gincident_admin_device_modification :
+    path:     /modifi#device/{id}/{idc}/{idfact}
+    defaults: { _controller: GincidentBundle:admin:modifi_devi }
+gincident_admin_ticket_supprimer:
+    path:     /supp#produit/{id}
+    defaults: { _controller: GincidentBundle:ticket:supprimer }
+gincident_admin_ticket_modifier:
+    path:    /modifier#produit/{id}
+    defaults: { _controller: GincidentBundle:ticket:modifier } 
+gincident_admin_prod_modifier:
+    path:    /modifier#produit/{id}/{idfact}
+    defaults: { _controller: GincidentBundle:admin:modifierprod }    
+    
+gincident_admin_show_ticket:
+    path:    /show_produit/{id}
+    defaults: { _controller: GincidentBundle:ticket:showticket } 
+ 
+gincident_admin_user_modifier:
+    path:    /modifierUser/{id}
+    defaults: { _controller: GincidentBundle:admin:modifier_user } 
+    
+gincident_active:
+    path:    /activeruser/{id}
+    defaults: { _controller: GincidentBundle:admin:activeuser}
+    
+gincident_notification:
+       path:    /sendnotification
+       defaults: { _controller: GincidentBundle:Default:sendNotification}
+
+gincident_admin_solutions :
+       path:    /solutions
+       defaults: { _controller: GincidentBundle:solutions:solliste}
+       
+       
+gincident_admin_solutions_ajouter :
+       path:    /solutions/ajouter
+       defaults: { _controller: GincidentBundle:solutions:ajouter_sol}
+       
+       
+gincident_admin_solutions_modifier :
+       path:    /solutions/modifier/{id}
+       defaults: { _controller: GincidentBundle:solutions:modifier_sol}
+       
+  
+gincident_admin_solutions_supprimer :
+       path:    /solutions/supprimer/{id}
+       defaults: { _controller: GincidentBundle:solutions:supprimer_sol}
+gincident_admin_client :
+       path:    /client/afficher
+       defaults: { _controller: GincidentBundle:admin:afficher_cl}      
+gincident_admin_client_ajouter :
+       path:    /client/ajouter
+       defaults: { _controller: GincidentBundle:admin:ajouter_cl}
+gincident_admin_client_modifier :
+       path:    /client/modifier/{id}
+       defaults: { _controller: GincidentBundle:admin:modifier_cl}
+gincident_admin_client_afficher :
+       path:    /client/affiche/{id}
+       defaults: { _controller: GincidentBundle:admin:aff_cl}
+                      
+gincident_admin_client_supprimer :
+       path:    /client/supprimer/{id}
+       defaults: { _controller: GincidentBundle:admin:supprimer_cl}
+gincident_admin_fournisseur_affiche :
+       path:    /fournisseur/list
+       defaults: { _controller: GincidentBundle:admin:list_fr}
+gincident_admin_fournisseur_ajouter :
+       path:    /fournisseur/ajouter
+       defaults: { _controller: GincidentBundle:admin:ajouter_fr}
+gincident_admin_fournisseur_modifier :
+       path:    /fournisseur/modifier/{id}
+       defaults: { _controller: GincidentBundle:admin:modifier_fr}
+gincident_admin_fournisseur_supprimer :
+       path:    /fournisseur/supprimer/{id}
+       defaults: { _controller: GincidentBundle:admin:supprimer_fr}
+       
+gincident_admin_fournisseur_show :
+       path:    /fournisseur/affiche/{id}
+       defaults: { _controller: GincidentBundle:admin:aff_fr}
+       
+gincident_admin_solutions_affiche :
+       path:    /solutions/affiche
+       defaults: { _controller: GincidentBundle:solutions:affiche_sol}
+gincident_admin_solutions_show :
+       path:    /solutions/show/{id}
+       defaults: { _controller: GincidentBundle:solutions:show_sol}
+                  
+gincident_admin_incident :
+       path:    /familles
+       defaults: { _controller: GincidentBundle:incident:incident_list}
+       
+gincident_admin_incident_ajouter :
+       path:    /famille/ajouter_categorie
+       defaults: { _controller: GincidentBundle:incident:ajouter_inc} 
+gincident_admin_incident_supprimer :
+       path:    /famille/supprimer_categorie/{id}
+       defaults: { _controller: GincidentBundle:incident:supprimer_inc}
+gincident_admin_incident_modifier:
+       path:    /famille/modifier_categorie/{id}
+       defaults: { _controller: GincidentBundle:incident:modifier_inc} 
+
+
+gincident_admin_profil:
+       path:    /mon_profil
+       defaults: { _controller: GincidentBundle:Default:profil} 
+gincident_admin_ListIntervenant:
+       path:    /ticket/Listintervenant/{id}
+       defaults: { _controller: GincidentBundle:admin:list_intervenant} 
+
+gincident_admin_incident_afficher:
+       path:    /incident/afficher_inc/{id}
+       defaults: { _controller: GincidentBundle:incident:afficher_inc} 
+gincident_admin_user_associer:
+       path:    /ticket/associer/{id}/{idt}
+       defaults: { _controller: GincidentBundle:admin:associer} 
+gincident_admin_client_facture:
+       path:    /client/afficher/{id}
+       defaults: { _controller: GincidentBundle:admin:ListeFacture}
+gincident_admin_facture_ajouter:
+       path:    /client/facture/ajouter/{id}
+       defaults: { _controller: GincidentBundle:admin:AjouterFacture}
+gincident_admin_facture_modifier:
+       path:    /client/facture/modifier/{id}
+       defaults: { _controller: GincidentBundle:admin:ModifierFacture}
+gincident_admin_facture_supprimer:
+       path:    /client/facture/supprimer/{id}
+       defaults: { _controller: GincidentBundle:admin:SupprimerFacture}
+gincident_admin_facture_afficher:
+       path:    /client/facture/afficher/{id}
+       defaults: { _controller: GincidentBundle:admin:AfficherFacture}  
+gincident_admin_List_Famille:
+       path:    /client/devise/ListFamille/{id}
+       defaults: { _controller: GincidentBundle:admin:ListFamille}
+gincident_admin_ListProductFamille:
+       path:    /client/devise/ListFamille/ListProduct/{id}/{idfact}
+       defaults: { _controller: GincidentBundle:admin:ListProduct} 
+gincident_admin_AjouterProduct:
+       path:    /client/devise/AjouterProduit/{id}/{idfact}
+       defaults: { _controller: GincidentBundle:admin:AjouterProduct}
+gincident_admin_DetailsProduct:
+       path:    /client/devise/DetailsProduit/{id}
+       defaults: { _controller: GincidentBundle:admin:DetailsProduct}
+

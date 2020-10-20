@@ -1,0 +1,488 @@
+{%extends "GincidentBundle::layout.html.twig"%}
+
+{% block title %}
+    <title>modifier des produit</title>
+{% endblock %} 
+      {% block stylesheets  %}
+       
+    <meta charset="utf-8" />
+        <title>Metronic Admin Theme #1 | Bootstrap Form Controls</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Preview page of Metronic Admin Theme #1 for bootstrap inputs, input groups, custom checkboxes and radio controls and more" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{{ asset('assets/global/css/components-rounded.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{ asset('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="{{ asset('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{{ asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" />
+          
+        <style>
+ .inp {
+  display: block;
+  height:10%;
+
+}
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; }
+textarea:focus::-moz-placeholder { color:transparent; }
+textarea:focus:-ms-input-placeholder { color:transparent; }
+
+input::-webkit-input-placeholder { color: #adadad;}
+input:-moz-placeholder { color: #adadad;}
+input::-moz-placeholder { color: #adadad;}
+input:-ms-input-placeholder { color: #adadad;}
+
+textarea::-webkit-input-placeholder { color: #adadad;}
+textarea:-moz-placeholder { color: #adadad;}
+textarea::-moz-placeholder { color: #adadad;}
+textarea:-ms-input-placeholder { color: #adadad;}
+.contact100-form {
+ 
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact100-form-title {
+  display: block;
+  width: 100%;
+  font-family: Raleway-Black;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: left;
+}
+.but{
+    background-color: #00FF7F;
+    width:120;
+    color:white;
+    margin-top: 20px;
+    
+}
+.but2{
+    background-color: #FF0000;
+    width:120;
+    color:white;
+    margin-top: 20px;
+
+}
+.pf{
+    background-color: #2F4F4F;
+    width:1070;
+    color:white;
+    margin-top: 20px;
+    display:block;
+    height:100;
+    text-align: center;
+    padding-top: 10px;
+    
+}
+            
+            
+            </style>
+            
+    {% endblock %} 
+         {% block megamenu %}
+              {% if is_granted('ROLE_ADMIN') %}
+                <div class="hor-menu   hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav">                 
+                            <li class="classic-menu-dropdown " aria-haspopup="true">
+                                <a href="{{ path('gincident_admin_daschboard')}}"> Menu Administrateur
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+                            <li class="classic-menu-dropdown " aria-haspopup="true">
+                                <a href="{{ path('gincident_admin_userliste')}}"> Utilisateur
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+                        
+                       
+                                
+                             <li class="classic-menu-dropdown " aria-haspopup="true">
+                                <a href="{{path('gincident_admin_statistique')}}"> statistique
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+           
+                            <li class="classic-menu-dropdown " aria-haspopup="true">
+
+                             <form class="navbar-form navbar-right inline-form" action="https://www.bing.com/search?scope=web" method="get" target="_self" data-bing-action-uri="https://www.bing.com/search?scope=web" data-form-code="EDGSPH">
+      <div class="form-group">
+        <input type="search" name="q"  class="input-sm form-control"  size=50 placeholder="Recherche" data-m='{"i":3,"p":2,"n":"searchinput","y":9,"o":1}' data-id="3" autocomplete="off">
+        <button type="submit" data-m='{"i":4,"p":2,"n":"search_websearch","y":9,"o":2}' data-id="4"  id="sb_form_go" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+      </div>
+    </form>
+                          </li>            
+                        </ul>
+                    </div> 
+                                    {% else %}
+                 <div class="hor-menu   hidden-sm hidden-xs">
+                 <ul class="nav navbar-nav">                 
+                                 
+                                     <li class="classic-menu-dropdown " aria-haspopup="true">
+
+                             <form class="navbar-form navbar-right inline-form" action="https://www.bing.com/search?scope=web" method="get" target="_self" data-bing-action-uri="https://www.bing.com/search?scope=web" data-form-code="EDGSPH">
+      <div class="form-group">
+        <input type="search" name="q"  class="input-sm form-control"  size=50 placeholder="Recherche" data-m='{"i":3,"p":2,"n":"searchinput","y":9,"o":1}' data-id="3" autocomplete="off">
+        <button type="submit" data-m='{"i":4,"p":2,"n":"search_websearch","y":9,"o":2}' data-id="4"  id="sb_form_go" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+      </div>
+    </form>
+                          </li>                                  
+                                                   
+                 </ul>                                  
+                 </div>         
+                  {% endif %}
+          {% endblock %}
+                       {%block daschboard %}
+           <li class="nav-item start">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Acceuil</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item start open">
+                                        <a href="{{path('gincident_homepage')}}" class="nav-link ">
+                                            <i class="icon-bar-chart"></i>
+                                            <span class="title">Dashboard</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start ">
+                                        <a href="#" class="nav-link ">
+                                            <i class="icon-bulb"></i>
+                                            <span class="title">Notification</span>
+                                            <span class="badge badge-success">22</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li> 
+            
+            
+            
+        {% endblock %}
+           {%block Client %}
+              <li class="nav-item">
+                                <a href="{{path('gincident_admin_client')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des Client</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}                   
+              {%block produit %}
+              <li class="nav-item">
+                                <a href="{{path('gincident_admin_ticket')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des produit</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}                  
+   {%block fournisseur %}
+                   <li class="nav-item ">
+                            <a href="{{path('gincident_admin_fournisseur_affiche')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des fournisseurs</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}
+          
+          {%block famille %}
+                   <li class="nav-item ">
+                                <a href="{{path('gincident_admin_incident')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title"> Gestion des famille</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}
+          
+         {% block content  %}  
+    <div class="page-bar">
+     
+        <div class="page-toolbar">
+            <div class="btn-group ">
+
+  <span class="  pf "><h1><center><marquee behavior="alternate" scrollamount="10" >Modifier Produit </marquee>  </center>  </h1></span>
+
+            </div>
+        </div>
+    </div>
+	<div class="well">
+		
+
+
+    {{ form_start(form,{'attr': {'class': 'contact100-form validate-form'}}) }}
+       
+        <div class="wrap-input100 rs1-wrap-input100 validate-input">
+       <div class="row">
+     <div class="col-sm-5">
+         {{form_errors(form.name)}}
+        {{ form_widget(form.name,{'attr':{'class':'form-control inp  placeholder-no-fix','placeholder': "produit Name"}}) }}
+        </div>
+          <div class="col-sm-5">
+        
+                     {{form_errors(form.incidents)}}
+
+        {{ form_widget(form.incidents,{'attr':{'class':'form-control inp placeholder-no-fix','placeholder': "categorie produit"}}) }}
+          </div></div>
+          <br>
+  
+        <br>
+        
+        <div class="row">
+         <div class="col-sm-5">
+         {{form_errors(form.reference)}}
+        {{ form_widget(form.reference,{'attr':{'class':'form-control inp  placeholder-no-fix','placeholder': "Reference"}}) }}
+        </div>
+	   <div class="col-sm-5">
+         {{form_errors(form.brochure)}}
+
+        {{ form_widget(form.brochure,{'attr':{'class':' form-control inp placeholder-no-fix','placeholder': "Upload File"}}) }}
+        <label class="custom-file-label" for="customFile">Choisir image</label>
+	
+		</div>
+
+
+    
+    
+        <br>
+                  <div class="row">
+     <div class="col-sm-5">
+                  {{form_errors(form.description)}}
+
+        {{ form_widget(form.description,{'attr':{'class':' form-control inp ','placeholder': "produit description",'required':' false '}}) }}
+         </div> 
+	<div class="col-sm-5">
+                  {{form_errors(form.prixuni)}}
+
+        {{ form_widget(form.prixuni,{'attr':{'class':' inp placeholder-no-fix','placeholder': "             ¨€"}}) }}
+         </div>
+		 </div>
+		 <br>
+		 		 <div class="row">
+		<div class="col-sm-5">
+         {{form_errors(form.FicheTic)}}
+
+        {{ form_widget(form.FicheTic,{'attr':{'class':' form-control inp placeholder-no-fix','placeholder': "choisir fiche technique(fichier pdf) "}}) }}
+        
+		</div>
+		</div>
+       
+         
+         <br>
+       <div class="row">
+       <div class="col-sm-1">
+       </div>
+        <div class="col-sm-2">
+<div class="form-group">
+    <input type="submit" value="Modifier" class="btn but  btn-bg btn-lg"> </div> </div>
+     <div class="col-sm-4">
+ <div class="form-group">
+ <input type="reset" value="Annuler"  class="btn but2 btn-bg btn-lg" />
+    </div>
+	  </div></div>
+         </div>
+         
+         
+         
+         
+         
+       
+        
+         
+ 
+        
+        
+        
+        
+        
+        
+        
+    {{ form_end(form) }}
+    
+   
+                </div>
+       
+  
+{% endblock %}
+
+       
+                    {% block javascripts %}
+         
+    <script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{{ asset('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="{{ asset('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+            $(document).ready(function()
+            {
+                $('#clickmewow').click(function()
+                {
+                    $('#radio1003').attr('checked', 'checked');
+                });
+            })
+        </script>
+                   
+                   
+                   
+                   {% endblock %}   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

@@ -1,0 +1,420 @@
+{%extends "GincidentBundle::layout.html.twig"%}
+
+           {% block title %}
+               <title>List Notification</title>
+     {% endblock %} 
+      {% block stylesheets  %}
+         <meta charset="utf-8" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta content="width=device-width, initial-scale=1" name="viewport" />
+     <meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description" />
+     <meta content="" name="author" />
+     <!-- BEGIN GLOBAL MANDATORY STYLES -->
+     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('admin/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
+     <!-- END GLOBAL MANDATORY STYLES -->
+     <!-- BEGIN PAGE LEVEL PLUGINS -->
+     <link href="{{ asset ('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css" />
+     <!-- END PAGE LEVEL PLUGINS -->
+     <!-- BEGIN THEME GLOBAL STYLES -->
+     <link href="{{ asset ('assets/global/css/components-rounded.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+     <link href="{{ asset ('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+     <!-- END THEME GLOBAL STYLES -->
+     <!-- BEGIN THEME LAYOUT STYLES -->
+     <link href="{{ asset ('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+     <link href="{{ asset ('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+     <link href="{{ asset ('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{ asset ('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+     <!-- END PAGE LEVEL PLUGINS -->
+     <!-- BEGIN THEME GLOBAL STYLES -->
+     <link href="{{ asset ('assets/global/css/components-rounded.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+     <link href="{{ asset ('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+
+     <link href="{{ asset ('assets/apps/css/todo-2.min.css')}}" rel="stylesheet" type="text/css" />
+          {% endblock %} 
+        
+         {% block megamenu %}
+              {% if is_granted('ROLE_ADMIN') %}
+                <div class="hor-menu   hidden-sm hidden-xs">
+                        <ul class="nav navbar-nav">                 
+                            <li class="classic-menu-dropdown" aria-haspopup="true">
+                                <a href="{{ path('gincident_admin_daschboard')}}"> Admin Menu
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+                            <li class="classic-menu-dropdown " aria-haspopup="true">
+                                <a href="{{ path('gincident_admin_userliste')}}"> Utilisateur
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+                        
+                       
+                                
+                             <li class="classic-menu-dropdown " aria-haspopup="true">
+                                <a href="{{path('gincident_admin_statistique')}}"> statistique
+                                    <span class="selected"> </span>
+                                </a>
+                            </li>
+                            <li class="classic-menu-dropdown " aria-haspopup="true">
+
+
+           <form id="sidebar-search" action="https://www.bing.com/search?scope=web" method="get" target="_self" data-bing-action-uri="https://www.bing.com/search?scope=web" data-form-code="EDGSPH">
+           <input type="text"class="from-control" name="q" placeholder="search..." id="q" accesskey="S" style="width: 300px;margin-top:14px;padding-bottom:4px;background-color: #003333;color: white" aria-label="Rechercher&nbsp;:" type="search" maxlength="250" value="" data-m='{"i":3,"p":2,"n":"searchinput","y":9,"o":1}' data-id="3" autocomplete="off">
+           <button  class="btn  btn-success" id="sb_form_go" data-m='{"i":4,"p":2,"n":"search_websearch","y":9,"o":2}' data-id="4"><i class="fa fa-search"></i></button>
+           </form>
+           </li>
+                        </ul>
+                    </div> 
+                                     {% else %}
+           <div class="hor-menu   hidden-sm hidden-xs">
+           <ul class="nav navbar-nav"> 
+           <li class="classic-menu-dropdown " aria-haspopup="true">
+
+
+           <form id="sidebar-search" action="https://www.bing.com/search?scope=web" method="get" target="_self" data-bing-action-uri="https://www.bing.com/search?scope=web" data-form-code="EDGSPH">
+           <input type="text"class="from-control" name="q" placeholder="search..." id="q" accesskey="S" style="width: 300px;margin-top:14px;padding-bottom:4px;background-color: #003333;color: white" aria-label="Rechercher&nbsp;:" type="search" maxlength="250" value="" data-m='{"i":3,"p":2,"n":"searchinput","y":9,"o":1}' data-id="3" autocomplete="off">
+           <button  class="btn  btn-success" id="sb_form_go" data-m='{"i":4,"p":2,"n":"search_websearch","y":9,"o":2}' data-id="4"><i class="fa fa-search"></i></button>
+           </form>
+           </li>
+
+ 
+           </ul> </div>
+                  {% endif %}
+          {% endblock %}
+        
+                {%block daschboard %}
+           <li class="nav-item start">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Acceuil</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow open"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item start open">
+                                        <a href="{{path('gincident_homepage')}}" class="nav-link ">
+                                            <i class="icon-bar-chart"></i>
+                                            <span class="title">Dashboard</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item start ">
+                                        <a href="#" class="nav-link ">
+                                            <i class="icon-bulb"></i>
+                                            <span class="title">Notification</span>
+                                            <span class="badge badge-success">22</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </li> 
+            
+            
+            
+        {% endblock %}
+                            
+                   {%block Client %}
+              <li class="nav-item">
+                                <a href="{{path('gincident_admin_client')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des Client</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}              
+      {%block produit %}
+              <li class="nav-item">
+                                <a href="{{path('gincident_admin_ticket')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des produit</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}                  
+       
+     {%block fournisseur %}
+                   <li class="nav-item ">
+                            <a href="{{path('gincident_admin_fournisseur_affiche')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">Gestion des fournisseurs</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}
+          
+          {%block famille %}
+                   <li class="nav-item ">
+                                <a href="{{path('gincident_admin_incident')}}" class="nav-link">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title"> Gestion des famille</span>
+                                    <span class="selected"></span>
+                                    <span class="arrow"></span>
+                                </a>
+                              
+               </li>
+          {% endblock %}
+      
+                   {% block content  %} 
+
+
+
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="#">list des {{ 'notifications'|trans({}, 'MgiletNotificationBundle') }}</a>
+                <i class="fa fa-circle"></i>
+            </li>
+
+        </ul>
+        <div class="page-toolbar">
+            <div class="btn-group pull-right">
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+  
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN TODO SIDEBAR -->
+            <div class="todo-ui">
+
+                <!-- END TODO SIDEBAR -->
+                <!-- BEGIN TODO CONTENT -->
+                <div class="todo-content">
+                    <div class="portlet light ">
+                        <!-- PROJECT HEAD -->
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-bar-chart font-green-sharp hide"></i>
+
+                                <span class="caption-subject font-green-sharp bold uppercase">Notification:</span>
+                            </div>
+                            <div class="actions">
+                                <div class="btn-group">
+                                  
+                                        <button id="aa" class="btn btn-primary">{{ 'mark_all_as_seen'|trans({}, 'MgiletNotificationBundle') }}</button>
+                                   
+<script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+    <script>
+        $("#aa").on('click', function(){
+           
+            $.ajax({
+                url:'{{path('seen_Not')}}',
+                type: "GET",
+                dataType: "json",
+
+ 
+                data: {
+                },
+                async: true,
+                success:function(){
+        $('aa').html(); // rafraichi toute ta DIV "bien sur il lui faut un id "
+    }
+            });
+           $("#mazou").load(location.href+" #mazou>*","");
+              $("#mmm").load(location.href+" #mmm>*","");
+           
+         return false;
+            
+
+}); 
+
+
+    </script>  
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end PROJECT HEAD -->
+                        <div class="portlet-body" id="mmm">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-4">
+                                    <div class="todo-tasklist">
+
+
+
+                                        {% for notifiableNotification in notifiableNotifications|reverse[:20] %}
+                                            {% if notifiableNotification.seen  %}
+
+                                        <div class="todo-tasklist-item todo-tasklist-item-border-green" style="border-left-width: 7px; ">
+                                            {% else %}
+                                             <div class="todo-tasklist-item todo-tasklist-item-border-red" style="border-left-width: 7px; background: #e8e8e8;">
+                                             {% endif %}
+             
+
+
+                                             {% if notifiableNotification.seen  %}
+                                              <span class="label label-success"> <i class="fa fa-bell-o"></i> notification lu </span>
+
+                                             {% else %}
+
+                                             <span class="label  label-warning"> <i class="fa fa-bell-o"></i> notification non lu </span>
+                                            {% endif %}
+
+                                            <div class="todo-tasklist-item-title">   {{ notifiableNotification.notification.subject }}   </div>
+                                            <div class="todo-tasklist-item-text"> {{ notifiableNotification.notification.message }}. </div>
+
+
+                                            <div class="todo-tasklist-controls pull-left">
+                                                                    <span class="todo-tasklist-date">
+                                                                        <i class="fa fa-calendar"></i> {{ notifiableNotification.notification.date|date("d/m/y H:i:s") }} </span>
+                                                <span class="todo-tasklist-badge badge badge-roundless">{{ notifiableNotification.notification.link }}</span>
+                                            </div>
+                                        </div>
+
+
+
+
+                                            
+   
+                                              
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-devider"> </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TODO CONTENT -->
+            </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+
+</div>
+
+
+{% endblock  %}
+
+                   {% block javascripts %}
+        
+                <script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{{ asset('assets/global/plugins/moment.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/amcharts.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/serial.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/pie.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/radar.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/light.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/patterns.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amcharts/themes/chalk.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/ammap/ammap.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/ammap/maps/js/worldLow.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/amcharts/amstockcharts/amstock.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/horizontal-timeline/horizontal-timeline.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.resize.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.sparkline.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js')}}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{{ asset('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="{{ asset('assets/pages/scripts/dashboard.min.js')}}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="{{ asset('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+            $(document).ready(function()
+            {
+                $('#clickmewow').click(function()
+                {
+                    $('#radio1003').attr('checked', 'checked');
+                });
+            })
+        </script>
+        
+          {% endblock %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

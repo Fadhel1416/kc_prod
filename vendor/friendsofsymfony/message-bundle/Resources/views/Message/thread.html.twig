@@ -1,0 +1,135 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+       
+
+{% block fos_content %}
+<br>
+    {% for message in thread.messages %}
+{%if app.user.username==message.sender%}
+
+<div class="row">
+<div class="col-xs-1">
+</div>
+    <div class="col-xs-1 pull-right">
+       
+        </div>
+    
+
+    <div class="messenger_thread_message pull-right well">
+        <div class="messenger_thread_message_info">
+                   <span class="form ">
+        {% trans with {'%sender%': message.sender|e, '%date%': message.createdAt|date} from 'FOSMessageBundle' %}message_info{% endtrans %}
+                   </span>
+        </div>
+        <div class="col-xs-1">
+</div>
+        <div class="messenger_thread_message_body pull-right" id="message_{{ message.id }}">
+                    <span class="message pull-right">
+
+          message : <b> {{ message.body }}</b>
+                    </span>
+        </div>
+    </div></div>
+          <br>
+          {% else %}
+          <div class="row">
+<div class="col-xs-0.5">
+</div>
+    <div class="col-xs-1 pull-left">
+        <span class="photo">
+        <img class="img-circle " width="30" hieght="30" src="{{asset('uploads/img/experts/')}}{{message.sender.photoname}}">
+        </span>
+        </div>
+    
+
+    <div class="messenger_thread_message pull-left well">
+        <div class="messenger_thread_message_info">
+                   <span class="form ">
+        {% trans with {'%sender%': message.sender|e, '%date%': message.createdAt|date} from 'FOSMessageBundle' %}message_info{% endtrans %}
+                   </span>
+        </div>
+        <div class="col-xs-1">
+</div>
+        <div class="messenger_thread_message_body pull-left" id="message_{{ message.id }}">
+                    <span class="message pull-left ">
+
+          message : <b> {{ message.body }}</b>
+                    </span>
+        </div>
+    </div></div>
+          <br>
+
+{% endif %}
+{% endfor %}
+
+
+<div class="row">
+
+<div class="col-xs-1">
+</div>
+
+{{form_start(form, {'method': 'post','action':url('fos_message_thread_view', {'threadId': thread.id})})}}
+         <div class="row">
+    <div class="col-md-5"> 
+  <div class="form-group has-success">
+    <div class="input-group input-icon">
+     <span class="input-group-addon">
+     <i class="fa fa-user font-green"></i>
+       </span>
+    {{ form_widget(form.body,{'attr':{'class':'form-control placeholder-no-fix','placeholder': "message "}}) }}
+    </div>   </div>   </div>   </div>
+    <div class="row">
+    <div class="col-xs-1">
+</div>
+         <div class="col-xs-3">
+         <input type="submit"  class="btn btn-primary" value="envoyer"></div>
+           <div class="col-xs-3">
+         <input type="reset"  class="btn btn-danger" value="cancel"/></div>
+
+</div>
+{{form_end(form)}}
+</div>
+{% endblock %}
+     {% block javascripts %}
+       
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{{ asset('assets/global/scripts/datatable.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{{ asset('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="{{ asset('assets/pages/scripts/table-datatables-buttons.min.js')}}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="{{ asset('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+            $(document).ready(function()
+            {
+                $('#clickmewow').click(function()
+                {
+                    $('#radio1003').attr('checked', 'checked');
+                });
+            })
+        </script>       
+  
+                   
+                   
+                   
+                   {% endblock %} 
+
+            
+              

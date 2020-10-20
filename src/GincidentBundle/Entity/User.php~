@@ -1,0 +1,54 @@
+<?php
+
+namespace GincidentBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
+use FOS\MessageBundle\Model\ParticipantInterface;
+
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ * @Notifiable(name="fos_user")
+*/
+class User extends BaseUser implements NotifiableInterface,ParticipantInterface {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @ORM\OneToMany(targetEntity="Thread", mappedBy="createdBy",cascade={"persist"})
+     */
+    private $usr;
+    /**
+     * @ORM\OneToMany(targetEntity="ThreadMetadata", mappedBy="participant",cascade={"persist"})
+     */
+    private $thmeta;
+     /**
+     * @ORM\OneToMany(targetEntity="MessageMetadata", mappedBy="participant",cascade={"persist"})
+     */
+    private $mesmeta;
+     /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="sender",cascade={"persist"})
+     */
+    private $mes;
+
+
+
+  
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+ 
+     
+  
+}
