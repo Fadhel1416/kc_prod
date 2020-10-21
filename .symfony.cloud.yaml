@@ -1,0 +1,52 @@
+name: app
+
+type: php:7.4
+
+runtime:
+    extensions:
+        - apcu
+        - mbstring
+        - sodium
+        
+
+build:
+    flavor: none
+
+web:
+    locations:
+        "/":
+            root: "web"
+            expires: 1h
+            passthru: "/app.php"
+
+disk: 512
+
+# These variables are available at build time
+variables:
+    env:
+        # Cache dir is set at "var/cache" instead of the legacy default "app/cache"
+        SYMFONY_APP_CACHE_DIR: "var/cache"
+
+mounts:
+    "var/cache": { source: local, source_path: "var/cache" }
+    "var/logs": { source: local, source_path: "var/logs" }
+
+hooks:
+    build: |
+        set -x -e
+
+        curl -s https://get.symfony.com/cloud/configurator | (>&2 bash)
+        
+
+        (>&2
+          symfony-build
+          # Keep the cache in a persistent directory if possible to speed up
+          # deployments. *Enable this only if your cache can be built before
+          # deployment and reused each time*.
+          # mkdir -p tmp/cache && mv app/cache/prod tmp/cache/
+        )
+
+    deploy: |
+        set -x -e
+
+        (>&2 symfony-deploy)
