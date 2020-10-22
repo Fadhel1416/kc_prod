@@ -26,27 +26,49 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
     /**
-     * @var array properties to be lazy loaded, with keys being the property
-     *            names and values being their default values
+     * @var array<string, null> properties to be lazy loaded, indexed by property name
+     */
+    public static $lazyPropertiesNames = array (
+  'niveau' => NULL,
+  'idclient' => NULL,
+  'famille' => NULL,
+  'sousfamille' => NULL,
+  'brochureFile' => NULL,
+  'Fich_Tic' => NULL,
+  'decor' => NULL,
+  'plaque' => NULL,
+  'ref' => NULL,
+  'codefacture' => NULL,
+);
+
+    /**
+     * @var array<string, mixed> default values of properties to be lazy loaded, with keys being the property names
      *
      * @see \Doctrine\Common\Proxy\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = ['niveau' => NULL, 'idclient' => NULL, 'famille' => NULL, 'sousfamille' => NULL, 'decor' => NULL, 'plaque' => NULL, 'ref' => NULL, 'brochureFilename' => NULL, 'codefacture' => NULL];
+    public static $lazyPropertiesDefaults = array (
+  'niveau' => NULL,
+  'idclient' => NULL,
+  'famille' => NULL,
+  'sousfamille' => NULL,
+  'brochureFile' => NULL,
+  'Fich_Tic' => NULL,
+  'decor' => NULL,
+  'plaque' => NULL,
+  'ref' => NULL,
+  'codefacture' => NULL,
+);
 
 
 
-    /**
-     * @param \Closure $initializer
-     * @param \Closure $cloner
-     */
-    public function __construct($initializer = null, $cloner = null)
+    public function __construct(?\Closure $initializer = null, ?\Closure $cloner = null)
     {
-        unset($this->niveau, $this->idclient, $this->famille, $this->sousfamille, $this->decor, $this->plaque, $this->ref, $this->brochureFilename, $this->codefacture);
+        unset($this->niveau, $this->idclient, $this->famille, $this->sousfamille, $this->brochureFile, $this->Fich_Tic, $this->decor, $this->plaque, $this->ref, $this->codefacture);
 
         $this->__initializer__ = $initializer;
         $this->__cloner__      = $cloner;
@@ -58,13 +80,13 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
      */
     public function __get($name)
     {
-        if (array_key_exists($name, $this->__getLazyProperties())) {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
             $this->__initializer__ && $this->__initializer__->__invoke($this, '__get', [$name]);
-
             return $this->$name;
         }
 
         trigger_error(sprintf('Undefined property: %s::$%s', __CLASS__, $name), E_USER_NOTICE);
+
     }
 
     /**
@@ -74,7 +96,7 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
      */
     public function __set($name, $value)
     {
-        if (array_key_exists($name, $this->__getLazyProperties())) {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
             $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', [$name, $value]);
 
             $this->$name = $value;
@@ -92,7 +114,7 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
      */
     public function __isset($name)
     {
-        if (array_key_exists($name, $this->__getLazyProperties())) {
+        if (\array_key_exists($name, self::$lazyPropertiesNames)) {
             $this->__initializer__ && $this->__initializer__->__invoke($this, '__isset', [$name]);
 
             return isset($this->$name);
@@ -108,7 +130,7 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'id', 'art_frs', 'niveau', 'idclient', 'famille', 'sousfamille', 'decor', 'plaque', 'ref', 'brochureFilename', 'codefacture', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'prxuni', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'dim', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'totalprix', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'qte'];
+            return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'id', 'art_frs', 'niveau', 'idclient', 'famille', 'sousfamille', 'brochureFile', 'Fich_Tic', 'decor', 'plaque', 'ref', 'codefacture', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'prxuni', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'dim', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'totalprix', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'qte'];
         }
 
         return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'id', 'art_frs', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'prxuni', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'dim', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'totalprix', '' . "\0" . 'GincidentBundle\\Entity\\Article' . "\0" . 'qte'];
@@ -126,14 +148,14 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
 
                 $existingProperties = get_object_vars($proxy);
 
-                foreach ($proxy->__getLazyProperties() as $property => $defaultValue) {
+                foreach ($proxy::$lazyPropertiesDefaults as $property => $defaultValue) {
                     if ( ! array_key_exists($property, $existingProperties)) {
                         $proxy->$property = $defaultValue;
                     }
                 }
             };
 
-            unset($this->niveau, $this->idclient, $this->famille, $this->sousfamille, $this->decor, $this->plaque, $this->ref, $this->brochureFilename, $this->codefacture);
+            unset($this->niveau, $this->idclient, $this->famille, $this->sousfamille, $this->brochureFile, $this->Fich_Tic, $this->decor, $this->plaque, $this->ref, $this->codefacture);
         }
     }
 
@@ -210,6 +232,7 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      * @internal generated method: use only when explicitly handling proxy specific loading logic
+     * @deprecated no longer in use - generated code now relies on internal components rather than generated public API
      * @static
      */
     public function __getLazyProperties()
@@ -221,12 +244,12 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function getBrochureFilename()
+    public function getBrochureFile()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBrochureFilename', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBrochureFile', []);
 
-        return parent::getBrochureFilename();
+        return parent::getBrochureFile();
     }
 
     /**
@@ -249,17 +272,6 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodeFacture', [$fact]);
 
         return parent::setCodeFacture($fact);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setBrochureFilename($brochureFilename)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBrochureFilename', [$brochureFilename]);
-
-        return parent::setBrochureFilename($brochureFilename);
     }
 
     /**
@@ -539,6 +551,61 @@ class Article extends \GincidentBundle\Entity\Article implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArtFrs', []);
 
         return parent::getArtFrs();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFich_Tic()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFich_Tic', []);
+
+        return parent::getFich_Tic();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFich_Tic($brochureFilename)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFich_Tic', [$brochureFilename]);
+
+        return parent::setFich_Tic($brochureFilename);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFichTic()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFichTic', []);
+
+        return parent::getFichTic();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFichTic($brochureFilename)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFichTic', [$brochureFilename]);
+
+        return parent::setFichTic($brochureFilename);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBrochureFile($brochureFilename)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBrochureFile', [$brochureFilename]);
+
+        return parent::setBrochureFile($brochureFilename);
     }
 
 }

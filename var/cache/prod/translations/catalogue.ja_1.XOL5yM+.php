@@ -280,6 +280,11 @@ $catalogueJa = new MessageCatalogue('ja', array (
     'form.new_password' => '新しいパスワード',
     'form.new_password_confirmation' => '確認',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => '前へ',
+    'label_next' => '次へ',
+  ),
 ));
 $catalogue->addFallbackCatalogue($catalogueJa);
 $catalogueFr = new MessageCatalogue('fr', array (
@@ -429,6 +434,11 @@ $catalogueFr = new MessageCatalogue('fr', array (
     'Account is disabled.' => 'Le compte est désactivé.',
     'Account is locked.' => 'Le compte est bloqué.',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_next' => 'Suivant',
+    'label_previous' => 'Precedent',
+  ),
   'messages' => 
   array (
     'hello' => '3aslema',
@@ -451,7 +461,7 @@ $catalogueFr = new MessageCatalogue('fr', array (
     'profile.flash.updated' => 'Le profil a été mis à jour.',
     'change_password.submit' => 'Modifier le mot de passe',
     'change_password.flash.success' => 'Le mot de passe a été modifié.',
-    'registration.check_email' => 'Un e-mail a été envoyé à l\'adresse %email%. Il contient un lien d\'activation sur lequel il vous faudra cliquer afin d\'activer votre compte.',
+    'registration.check_email' => 'compte avec email %email% est maintenant desactive. veuillez attendez pour que administrateur confirme votre compte .',
     'registration.confirmed' => 'Félicitations %username%, votre compte est maintenant activé.',
     'registration.back' => 'Retour à la page d\'origine.',
     'registration.submit' => 'Créer un compte',

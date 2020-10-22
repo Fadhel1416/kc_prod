@@ -257,9 +257,17 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
                     return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_device_modification']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::modifi_deviAction',));
                 }
 
-                // gincident_admin_ticket_modifier
-                if (0 === strpos($pathinfo, '/modifier#produit') && preg_match('#^/modifier\\#produit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_ticket_modifier']), array (  '_controller' => 'GincidentBundle\\Controller\\ticketController::modifierAction',));
+                if (0 === strpos($pathinfo, '/modifier#produit')) {
+                    // gincident_admin_ticket_modifier
+                    if (preg_match('#^/modifier\\#produit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_ticket_modifier']), array (  '_controller' => 'GincidentBundle\\Controller\\ticketController::modifierAction',));
+                    }
+
+                    // gincident_admin_prod_modifier
+                    if (preg_match('#^/modifier\\#produit/(?P<id>[^/]++)/(?P<idfact>[^/]++)$#sD', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_prod_modifier']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::modifierprodAction',));
+                    }
+
                 }
 
                 // gincident_admin_user_modifier
@@ -401,6 +409,32 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
                 // gincident_admin_facture_supprimer
                 if (0 === strpos($pathinfo, '/client/facture/supprimer') && preg_match('#^/client/facture/supprimer/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_facture_supprimer']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::SupprimerFactureAction',));
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/client/devise')) {
+                if (0 === strpos($pathinfo, '/client/devise/ListFamille')) {
+                    // gincident_admin_List_Famille
+                    if (preg_match('#^/client/devise/ListFamille/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_List_Famille']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::ListFamilleAction',));
+                    }
+
+                    // gincident_admin_ListProductFamille
+                    if (0 === strpos($pathinfo, '/client/devise/ListFamille/ListProduct') && preg_match('#^/client/devise/ListFamille/ListProduct/(?P<id>[^/]++)/(?P<idfact>[^/]++)$#sD', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_ListProductFamille']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::ListProductAction',));
+                    }
+
+                }
+
+                // gincident_admin_AjouterProduct
+                if (0 === strpos($pathinfo, '/client/devise/AjouterProduit') && preg_match('#^/client/devise/AjouterProduit/(?P<id>[^/]++)/(?P<idfact>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_AjouterProduct']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::AjouterProductAction',));
+                }
+
+                // gincident_admin_DetailsProduct
+                if (0 === strpos($pathinfo, '/client/devise/DetailsProduit') && preg_match('#^/client/devise/DetailsProduit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, ['_route' => 'gincident_admin_DetailsProduct']), array (  '_controller' => 'GincidentBundle\\Controller\\adminController::DetailsProductAction',));
                 }
 
             }

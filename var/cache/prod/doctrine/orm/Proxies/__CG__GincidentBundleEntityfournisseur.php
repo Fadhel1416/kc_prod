@@ -26,25 +26,27 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
     /**
-     * @var array properties to be lazy loaded, with keys being the property
-     *            names and values being their default values
+     * @var array<string, null> properties to be lazy loaded, indexed by property name
+     */
+    public static $lazyPropertiesNames = array (
+);
+
+    /**
+     * @var array<string, mixed> default values of properties to be lazy loaded, with keys being the property names
      *
      * @see \Doctrine\Common\Proxy\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = [];
+    public static $lazyPropertiesDefaults = array (
+);
 
 
 
-    /**
-     * @param \Closure $initializer
-     * @param \Closure $cloner
-     */
-    public function __construct($initializer = null, $cloner = null)
+    public function __construct(?\Closure $initializer = null, ?\Closure $cloner = null)
     {
 
         $this->__initializer__ = $initializer;
@@ -64,10 +66,10 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'id', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'name', 'famille', 'article'];
+            return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'id', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'name', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'reference', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'codetva', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'created_at', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_numrue', 'famille', 'article', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_numrue'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'id', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'name', 'famille', 'article'];
+        return ['__isInitialized__', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'id', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'name', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'reference', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'codetva', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'created_at', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dircom_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'dirzone_numrue', 'famille', 'article', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom1_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom2_numrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_adr1', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_adr2', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_telfixe', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_telmobile', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_nomrue', '' . "\0" . 'GincidentBundle\\Entity\\fournisseur' . "\0" . 'agentcom3_numrue'];
     }
 
     /**
@@ -82,7 +84,7 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
 
                 $existingProperties = get_object_vars($proxy);
 
-                foreach ($proxy->__getLazyProperties() as $property => $defaultValue) {
+                foreach ($proxy::$lazyPropertiesDefaults as $property => $defaultValue) {
                     if ( ! array_key_exists($property, $existingProperties)) {
                         $proxy->$property = $defaultValue;
                     }
@@ -165,6 +167,7 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
     /**
      * {@inheritDoc}
      * @internal generated method: use only when explicitly handling proxy specific loading logic
+     * @deprecated no longer in use - generated code now relies on internal components rather than generated public API
      * @static
      */
     public function __getLazyProperties()
@@ -235,6 +238,402 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
     /**
      * {@inheritDoc}
      */
+    public function getDircomAdr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomAdr1', []);
+
+        return parent::getDircomAdr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_Adr1', []);
+
+        return parent::getDircom_Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_Adr2', []);
+
+        return parent::getDircom_Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircomAdr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomAdr2', []);
+
+        return parent::getDircomAdr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircomTelfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomTelfixe', []);
+
+        return parent::getDircomTelfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_Telfixe', []);
+
+        return parent::getDircom_Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircomTelmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomTelmobile', []);
+
+        return parent::getDircomTelmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_TelMobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_TelMobile', []);
+
+        return parent::getDircom_TelMobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircomNomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomNomrue', []);
+
+        return parent::getDircomNomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_Nomrue', []);
+
+        return parent::getDircom_Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircom_Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircom_Numrue', []);
+
+        return parent::getDircom_Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDircomNumrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDircomNumrue', []);
+
+        return parent::getDircomNumrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomAdr1($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomAdr1', [$adr]);
+
+        return parent::setDircomAdr1($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomAdr2($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomAdr2', [$adr]);
+
+        return parent::setDircomAdr2($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomTelfixe($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomTelfixe', [$tel]);
+
+        return parent::setDircomTelfixe($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomTelmobile($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomTelmobile', [$tel]);
+
+        return parent::setDircomTelmobile($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomNomrue($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomNomrue', [$nom]);
+
+        return parent::setDircomNomrue($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDircomNumrue($num)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDircomNumrue', [$num]);
+
+        return parent::setDircomNumrue($num);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneAdr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneAdr1', []);
+
+        return parent::getDirzoneAdr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Adr1', []);
+
+        return parent::getDirzone_Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneAdr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneAdr2', []);
+
+        return parent::getDirzoneAdr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Adr2', []);
+
+        return parent::getDirzone_Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneTelfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneTelfixe', []);
+
+        return parent::getDirzoneTelfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Telfixe', []);
+
+        return parent::getDirzone_Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneTelmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneTelmobile', []);
+
+        return parent::getDirzoneTelmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Telmobile', []);
+
+        return parent::getDirzone_Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneNomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneNomrue', []);
+
+        return parent::getDirzoneNomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Nomrue', []);
+
+        return parent::getDirzone_Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzoneNumrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzoneNumrue', []);
+
+        return parent::getDirzoneNumrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDirzone_Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDirzone_Numrue', []);
+
+        return parent::getDirzone_Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneAdr1($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneAdr1', [$adr]);
+
+        return parent::setDirzoneAdr1($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneAdr2($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneAdr2', [$adr]);
+
+        return parent::setDirzoneAdr2($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneTelfixe($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneTelfixe', [$tel]);
+
+        return parent::setDirzoneTelfixe($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneTelmobile($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneTelmobile', [$tel]);
+
+        return parent::setDirzoneTelmobile($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneNomrue($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneNomrue', [$nom]);
+
+        return parent::setDirzoneNomrue($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDirzoneNumrue($num)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDirzoneNumrue', [$num]);
+
+        return parent::setDirzoneNumrue($num);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getFamille()
     {
 
@@ -257,12 +656,683 @@ class fournisseur extends \GincidentBundle\Entity\fournisseur implements \Doctri
     /**
      * {@inheritDoc}
      */
+    public function getAgentcom1Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Adr1', []);
+
+        return parent::getAgentcom1Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Adr1', []);
+
+        return parent::getAgentcom1_Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Adr2', []);
+
+        return parent::getAgentcom1Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Adr2', []);
+
+        return parent::getAgentcom1_Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Telfixe', []);
+
+        return parent::getAgentcom1Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Telfixe', []);
+
+        return parent::getAgentcom1_Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Telmobile', []);
+
+        return parent::getAgentcom1Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Telmobile', []);
+
+        return parent::getAgentcom1_Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Nomrue', []);
+
+        return parent::getAgentcom1Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Nomrue', []);
+
+        return parent::getAgentcom1_Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1Numrue', []);
+
+        return parent::getAgentcom1Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom1_Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom1_Numrue', []);
+
+        return parent::getAgentcom1_Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Adr1($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Adr1', [$adr]);
+
+        return parent::setAgentcom1Adr1($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Adr2($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Adr2', [$adr]);
+
+        return parent::setAgentcom1Adr2($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Telfixe($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Telfixe', [$tel]);
+
+        return parent::setAgentcom1Telfixe($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Telmobile($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Telmobile', [$tel]);
+
+        return parent::setAgentcom1Telmobile($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Nomrue($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Nomrue', [$nom]);
+
+        return parent::setAgentcom1Nomrue($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom1Numrue($num)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom1Numrue', [$num]);
+
+        return parent::setAgentcom1Numrue($num);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function __toString()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Adr1', []);
+
+        return parent::getAgentcom2Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Adr1', []);
+
+        return parent::getAgentcom2_Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Adr2', []);
+
+        return parent::getAgentcom2Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Adr2', []);
+
+        return parent::getAgentcom2_Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Telfixe', []);
+
+        return parent::getAgentcom2Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Telfixe', []);
+
+        return parent::getAgentcom2_Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Telmobile', []);
+
+        return parent::getAgentcom2Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Telmobile', []);
+
+        return parent::getAgentcom2_Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Nomrue', []);
+
+        return parent::getAgentcom2Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Nomrue', []);
+
+        return parent::getAgentcom2_Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2Numrue', []);
+
+        return parent::getAgentcom2Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom2_Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom2_Numrue', []);
+
+        return parent::getAgentcom2_Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Adr1($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Adr1', [$adr]);
+
+        return parent::setAgentcom2Adr1($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Adr2($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Adr2', [$adr]);
+
+        return parent::setAgentcom2Adr2($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Telfixe($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Telfixe', [$tel]);
+
+        return parent::setAgentcom2Telfixe($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Telmobile($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Telmobile', [$tel]);
+
+        return parent::setAgentcom2Telmobile($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Nomrue($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Nomrue', [$nom]);
+
+        return parent::setAgentcom2Nomrue($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom2Numrue($num)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom2Numrue', [$num]);
+
+        return parent::setAgentcom2Numrue($num);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Adr1', []);
+
+        return parent::getAgentcom3Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Adr1()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Adr1', []);
+
+        return parent::getAgentcom3_Adr1();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Adr2', []);
+
+        return parent::getAgentcom3Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Adr2()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Adr2', []);
+
+        return parent::getAgentcom3_Adr2();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Telfixe', []);
+
+        return parent::getAgentcom3Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Telfixe()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Telfixe', []);
+
+        return parent::getAgentcom3_Telfixe();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Telmobile', []);
+
+        return parent::getAgentcom3_Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Telmobile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Telmobile', []);
+
+        return parent::getAgentcom3Telmobile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Nomrue', []);
+
+        return parent::getAgentcom3Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Nomrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Nomrue', []);
+
+        return parent::getAgentcom3_Nomrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3Numrue', []);
+
+        return parent::getAgentcom3Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAgentcom3_Numrue()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgentcom3_Numrue', []);
+
+        return parent::getAgentcom3_Numrue();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Adr1($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Adr1', [$adr]);
+
+        return parent::setAgentcom3Adr1($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Adr2($adr)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Adr2', [$adr]);
+
+        return parent::setAgentcom3Adr2($adr);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Telfixe($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Telfixe', [$tel]);
+
+        return parent::setAgentcom3Telfixe($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Telmobile($tel)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Telmobile', [$tel]);
+
+        return parent::setAgentcom3Telmobile($tel);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Nomrue($nom)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Nomrue', [$nom]);
+
+        return parent::setAgentcom3Nomrue($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAgentcom3Numrue($num)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgentcom3Numrue', [$num]);
+
+        return parent::setAgentcom3Numrue($num);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getReference()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReference', []);
+
+        return parent::getReference();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCodetva()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCodetva', []);
+
+        return parent::getCodetva();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReference($ref)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReference', [$ref]);
+
+        return parent::setReference($ref);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCodetva($codetva)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodetva', [$codetva]);
+
+        return parent::setCodetva($codetva);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCreatedAT($dt)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAT', [$dt]);
+
+        return parent::setCreatedAT($dt);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreatedAt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
+
+        return parent::getCreatedAt();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreated_At()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated_At', []);
+
+        return parent::getCreated_At();
     }
 
 }

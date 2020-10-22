@@ -38,7 +38,7 @@ final class Versions
   'doctrine/cache' => '1.10.2@13e3381b25847283a91948d04640543941309727',
   'doctrine/collections' => '1.6.7@55f8b799269a1a472457bd1a41b4f379d4cfba4a',
   'doctrine/common' => '2.13.3@f3812c026e557892c34ef37f6ab808a6b567da7f',
-  'doctrine/dbal' => '2.11.1@6e6903cd5e3a5be60a79439e3ee8fe126f78fe86',
+  'doctrine/dbal' => '2.11.3@fb5d5f2f26babf8dce217b1eb88300c22bb703a4',
   'doctrine/doctrine-bundle' => '1.12.10@2ee4c25a847e744e93d7fc2895e059ad9ef7d10c',
   'doctrine/doctrine-cache-bundle' => '1.4.0@6bee2f9b339847e8a984427353670bad4e7bdccb',
   'doctrine/event-manager' => '1.1.1@41370af6a30faa9dc0368c4a6814d596e81aba7f',
@@ -85,10 +85,10 @@ final class Versions
   'symfony/service-contracts' => 'v2.2.0@d15da7ba4957ffb8f1747218be9e1a121fd298a1',
   'symfony/swiftmailer-bundle' => 'v2.6.7@c4808f5169efc05567be983909d00f00521c53ec',
   'symfony/symfony' => 'v3.4.35@2adc85d49cbe14e346068fa7e9c2e1f08ab31de6',
-  'twig/twig' => 'v2.13.1@57e96259776ddcacf1814885fc3950460c8e18ef',
+  'twig/twig' => 'v2.14.0@d495243dade48c39b6a5261c26cdbd8c5703f6a0',
   'sensio/generator-bundle' => 'v3.1.7@28cbaa244bd0816fd8908b93f90380bcd7b67a65',
   'symfony/phpunit-bridge' => 'v3.4.45@260a244e5bddadd61889ae5201d01a8234c4f076',
-  'fadhel/kc_prod' => 'No version set (parsed as 1.0.0)@',
+  'fadhel/kc_prod' => 'dev-master@274130668157cb5ea490768447ef7d6b730894f8',
 );
 
     private function __construct()
